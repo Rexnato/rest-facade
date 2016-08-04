@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.mx.rexnato</groupId>
+    <artifactId>rest-facade</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>facade-jboss-jee7</artifactId>
+  <packaging>war</packaging>
+  
+  <developers>
+    <developer>
+	      <id>rexnato</id>
+	      <name>Renato Noh</name>
+	      <email>jrnq218@gmail.com</email>
+	      <organization>Rexformatica</organization>
+	      <organizationUrl>http://www.example.com</organizationUrl>
+	 </developer>
+  </developers>
+  
+  <dependencies>
+  		<!-- Api java de jboss  utilizabla para 8.x y 9 
+  			Se agrega por si quieren agregar cdi u otra tecnologia todo esta disponible si quieren una version n mas ligera
+  			utilizar el dependency management prometo luego crear un proyecto con lo necesario nomas
+  		-->
+  		<dependency>
+		            <groupId>org.jboss.spec</groupId>
+		            <artifactId>jboss-javaee-7.0</artifactId>
+		            <version>1.0.0.Final</version>
+		            <type>pom</type>
+		            <scope>provided</scope>
+		</dependency>
+				
+  </dependencies>
+  
+  <build>
+        <plugins>
+        	<!-- Plugin para compilar com java 8 en construccion -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>

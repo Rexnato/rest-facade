@@ -1,9 +1,9 @@
 package com.mx.rexnato.restservice;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
+import javax.json.Json;
+import javax.json.JsonObjectBuilder;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -37,16 +37,11 @@ public class ExamplesService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/lista-numeros/{cantidad}")
 	public Response listaNumeros(@PathParam("cantidad")int cantidad){
-		List<Integer> numeros = new ArrayList<Integer>();
-		if(cantidad == 0){
-			//si mandas el 0 y quieres ver el 204 recomiendo cheques tu consola en tu navegador
-			return Response.ok(numeros).build();
-		}
+		JsonObjectBuilder builder = Json.createObjectBuilder();
 		for (int x=1;x<=cantidad;x++){
-			numeros.add(x);
+			builder.add("numero", x);
 		}
-		   
-		return Response.ok(numeros).build();
+		return Response.ok(builder.build()).build();
 	}
 	
 	/***
